@@ -139,3 +139,28 @@ ls
 - 決定: Enter / Z
 - キャンセル: X / Backspace（将来拡張用）
 - バトルメニュー: ↑↓
+
+---
+
+## GitHub 上で動かす（GitHub Pages）
+
+このリポジトリには GitHub Pages 自動デプロイ設定を入れてあります。
+
+### 事前条件
+
+- リポジトリを GitHub に push している
+- デフォルトブランチが `main`（この設定は `main` への push でデプロイ）
+
+### 手順
+
+1. GitHub で対象リポジトリを開く
+2. **Settings** → **Pages** を開く
+3. **Build and deployment** の **Source** を **GitHub Actions** にする
+4. `main` ブランチへ push する
+5. **Actions** タブで `Deploy static site to GitHub Pages` が成功するのを確認
+6. 表示された URL（`https://<ユーザー名>.github.io/<リポジトリ名>/`）を開く
+
+### 補足
+
+- 初回公開は数分かかることがあります
+- 404 になる場合は、Actions のデプロイ完了後に再読み込みしてください
