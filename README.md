@@ -18,25 +18,21 @@ SFC版FF6風の雰囲気を意識した、ドット調の探索＋コマンド�
 
 ### A. Windows PowerShell の場合（推奨）
 
-`C:\workspace\-` は環境依存で存在しないことがあるため、**まずプロジェクトが置いてある実在パスを確認**してから移動します。
+`C:\workspace\-` は環境依存で存在しないことがあるため、まず「このゲームのファイルがあるフォルダ」を見つけます。
 
-1. PowerShell を開く
-2. いまいる場所を確認
+#### A-1. まずフォルダを見つける（いちばん簡単）
 
-```powershell
-Get-Location
-```
+1. エクスプローラーを開く
+2. 検索ボックスに **`serve.ps1`** と入力して検索
+3. 見つかった `serve.ps1` を右クリック
+4. 「**ファイルの場所を開く**」を押す
+5. 開いたフォルダのアドレスバーをクリックし、表示されたフルパスをコピー
+   - 例: `C:\Users\yourname\Downloads\-`
 
-3. `README.md` があるフォルダを探す（例: `C:\Users\<ユーザー名>\Downloads\-` など）
-
-```powershell
-Get-ChildItem -Path C:\ -Filter README.md -Recurse -ErrorAction SilentlyContinue
-```
-
-4. 見つかったフォルダへ移動（`README.md` があるディレクトリを指定）
+#### A-2. PowerShell でそのフォルダへ移動
 
 ```powershell
-Set-Location "<README.md があるフォルダのフルパス>"
+Set-Location "<コピーしたフルパス>"
 ```
 
 例:
@@ -45,23 +41,32 @@ Set-Location "<README.md があるフォルダのフルパス>"
 Set-Location "C:\Users\yourname\Downloads\-"
 ```
 
-5. ファイルがあることを確認する（README.md, index.html, game.js など）
+#### A-3. その場所が正しいか確認
 
 ```powershell
 Get-ChildItem
 ```
 
-6. サーバーを起動する
+この一覧に、最低でも次のファイルが見えればOKです。
+
+- `README.md`
+- `index.html`
+- `game.js`
+- `style.css`
+- `serve.ps1`
+- `serve.sh`
+
+#### A-4. サーバー起動
 
 ```powershell
 .\serve.ps1
 ```
 
-7. ブラウザで開く
+#### A-5. ブラウザで開く
 
 - `http://localhost:8000/`
 
-8. もし実行ポリシーで止まる場合は、こちらで起動する
+#### A-6. 実行ポリシーで止まるとき
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\serve.ps1
@@ -100,7 +105,7 @@ ls
 
 #### Windows PowerShell
 
-1. `README.md` があるフォルダへ移動
+1. 上の「A-1」「A-2」で見つけたフォルダへ移動
 
 ```powershell
 Set-Location "<README.md があるフォルダのフルパス>"
