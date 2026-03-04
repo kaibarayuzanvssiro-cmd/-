@@ -12,6 +12,39 @@ SFC版FF6風の雰囲気を意識した、ドット調の探索＋コマンド�
 
 ---
 
+
+## この環境で作成されたファイルはどこにある？
+
+このチャット実行環境では、プロジェクト一式は次のフォルダにあります。
+
+- `/workspace/-`
+
+含まれている主なファイル:
+
+- `README.md`
+- `index.html`
+- `game.js`
+- `style.css`
+- `serve.sh`
+- `serve.ps1`
+
+確認コマンド（この環境のターミナル）:
+
+```bash
+pwd
+ls -la /workspace/-
+```
+
+Windows の PowerShell で「自分のPC内の場所」を探したい場合:
+
+```powershell
+Get-ChildItem -Path C:\ -Filter "index.html" -Recurse -ErrorAction SilentlyContinue
+```
+
+> 補足: この環境（`/workspace/-`）はクラウド側の作業ディレクトリです。ローカルPCへ自動でダウンロードはされません。
+
+---
+
 ## 1から手順（どの階層で何を打つか）
 
 以下の手順を**そのまま順番どおり**実行してください。
