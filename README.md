@@ -12,14 +12,10 @@ SFC版FF6風の雰囲気を意識した、ドット調の探索＋コマンド�
 
 ---
 
+## 重要: まだダウンロードしていない場合
 
-## この環境で作成されたファイルはどこにある？
-
-このチャット実行環境では、プロジェクト一式は次のフォルダにあります。
-
-- `/workspace/-`
-
-含まれている主なファイル:
+ご指摘のとおり、**ダウンロードしていないならPC内にファイルは存在しません**。
+まずはこの6ファイルを同じフォルダに保存してください。
 
 - `README.md`
 - `index.html`
@@ -28,59 +24,32 @@ SFC版FF6風の雰囲気を意識した、ドット調の探索＋コマンド�
 - `serve.sh`
 - `serve.ps1`
 
-確認コマンド（この環境のターミナル）:
+### いちばん簡単な保存方法（手動）
 
-```bash
-pwd
-ls -la /workspace/-
-```
-
-Windows の PowerShell で「自分のPC内の場所」を探したい場合:
-
-```powershell
-Get-ChildItem -Path C:\ -Filter "index.html" -Recurse -ErrorAction SilentlyContinue
-```
-
-> 補足: この環境（`/workspace/-`）はクラウド側の作業ディレクトリです。ローカルPCへ自動でダウンロードはされません。
+1. PC上で新しいフォルダを作る（例: `C:\Users\<あなたの名前>\Desktop\neo-fantasy-vi-lite`）
+2. 上の6ファイルをそのフォルダに保存する
+3. そのフォルダを開き、ファイルが6個あることを確認する
 
 ---
 
 ## 1から手順（どの階層で何を打つか）
 
-以下の手順を**そのまま順番どおり**実行してください。
-
 ### A. Windows PowerShell の場合（推奨）
 
-`C:\workspace\-` は環境依存で存在しないことがあるため、まず「このゲームのファイルがあるフォルダ」を見つけます。
-
-#### A-1. まずフォルダを見つける（いちばん簡単）
-
-1. エクスプローラーを開く
-2. 検索ボックスに **`serve.ps1`** と入力して検索
-3. 見つかった `serve.ps1` を右クリック
-4. 「**ファイルの場所を開く**」を押す
-5. 開いたフォルダのアドレスバーをクリックし、表示されたフルパスをコピー
-   - 例: `C:\Users\yourname\Downloads\-`
-
-#### A-2. PowerShell でそのフォルダへ移動
+1. PowerShell を開く
+2. ゲームを保存したフォルダへ移動
 
 ```powershell
-Set-Location "<コピーしたフルパス>"
+Set-Location "C:\Users\<あなたの名前>\Desktop\neo-fantasy-vi-lite"
 ```
 
-例:
-
-```powershell
-Set-Location "C:\Users\yourname\Downloads\-"
-```
-
-#### A-3. その場所が正しいか確認
+3. ファイル確認
 
 ```powershell
 Get-ChildItem
 ```
 
-この一覧に、最低でも次のファイルが見えればOKです。
+以下が見えればOKです。
 
 - `README.md`
 - `index.html`
@@ -89,17 +58,17 @@ Get-ChildItem
 - `serve.ps1`
 - `serve.sh`
 
-#### A-4. サーバー起動
+4. サーバー起動
 
 ```powershell
 .\serve.ps1
 ```
 
-#### A-5. ブラウザで開く
+5. ブラウザで開く
 
 - `http://localhost:8000/`
 
-#### A-6. 実行ポリシーで止まるとき
+6. 実行ポリシーで止まる場合
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\serve.ps1
@@ -110,19 +79,19 @@ powershell -ExecutionPolicy Bypass -File .\serve.ps1
 ### B. Linux / macOS / Git Bash の場合（推奨）
 
 1. ターミナルを開く
-2. このプロジェクトのフォルダへ移動する
+2. ゲームを保存したフォルダへ移動
 
 ```bash
-cd /workspace/-
+cd /path/to/neo-fantasy-vi-lite
 ```
 
-3. ファイルがあることを確認する
+3. ファイル確認
 
 ```bash
 ls
 ```
 
-4. サーバーを起動する
+4. サーバー起動
 
 ```bash
 ./serve.sh
@@ -134,50 +103,10 @@ ls
 
 ---
 
-### C. `serve.sh` / `serve.ps1` を使わない手動起動
+## うまく表示されないとき
 
-#### Windows PowerShell
-
-1. 上の「A-1」「A-2」で見つけたフォルダへ移動
-
-```powershell
-Set-Location "<README.md があるフォルダのフルパス>"
-```
-
-2. サーバー起動
-
-```powershell
-py -m http.server 8000
-```
-
-3. ブラウザで開く
-
-- `http://localhost:8000/`
-
-#### Linux / macOS / Git Bash
-
-1. プロジェクトへ移動
-
-```bash
-cd /workspace/-
-```
-
-2. サーバー起動
-
-```bash
-python3 -m http.server 8000
-```
-
-3. ブラウザで開く
-
-- `http://localhost:8000/`
-
----
-
-## うまく表示されないときの確認
-
-- `http://localhost:8000/` でディレクトリ一覧が出る場合は、`http://localhost:8000/index.html` を直接開く
-- サーバー起動前に、必ず `README.md` と同じ階層へ移動しているか確認する
+- `http://localhost:8000/` でディレクトリ一覧が出る場合: `http://localhost:8000/index.html` を直接開く
+- サーバー起動前に、`README.md` と同じ階層にいるか確認する
 
 ## 操作
 
