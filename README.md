@@ -12,10 +12,9 @@ SFC版FF6風の雰囲気を意識した、ドット調の探索＋コマンド�
 
 ---
 
-## 重要: まだダウンロードしていない場合
+## まず最初に: ファイルをダウンロードする方法
 
-ご指摘のとおり、**ダウンロードしていないならPC内にファイルは存在しません**。
-まずはこの6ファイルを同じフォルダに保存してください。
+このプロジェクトは以下の6ファイルで動きます。
 
 - `README.md`
 - `index.html`
@@ -24,11 +23,37 @@ SFC版FF6風の雰囲気を意識した、ドット調の探索＋コマンド�
 - `serve.sh`
 - `serve.ps1`
 
-### いちばん簡単な保存方法（手動）
+### 方法A（推奨）: GitHub から ZIP でダウンロード
 
-1. PC上で新しいフォルダを作る（例: `C:\Users\<あなたの名前>\Desktop\neo-fantasy-vi-lite`）
-2. 上の6ファイルをそのフォルダに保存する
-3. そのフォルダを開き、ファイルが6個あることを確認する
+1. このプロジェクトの GitHub ページを開く
+2. 緑の **Code** ボタンを押す
+3. **Download ZIP** を押す
+4. ダウンロードした ZIP を解凍する
+5. 解凍したフォルダの中に上記6ファイルがあることを確認する
+
+### 方法B（推奨）: Git でクローン
+
+#### Windows PowerShell
+
+```powershell
+git clone <このリポジトリのURL>
+Set-Location <クローンしてできたフォルダ>
+Get-ChildItem
+```
+
+#### Linux / macOS / Git Bash
+
+```bash
+git clone <このリポジトリのURL>
+cd <クローンしてできたフォルダ>
+ls
+```
+
+### 方法C（最終手段）: 6ファイルを手動保存
+
+1. PC上で新しいフォルダを作る
+2. `README.md`, `index.html`, `game.js`, `style.css`, `serve.sh`, `serve.ps1` を同じフォルダに保存する
+3. ファイル名のスペルが一致しているか確認する
 
 ---
 
@@ -37,10 +62,10 @@ SFC版FF6風の雰囲気を意識した、ドット調の探索＋コマンド�
 ### A. Windows PowerShell の場合（推奨）
 
 1. PowerShell を開く
-2. ゲームを保存したフォルダへ移動
+2. ダウンロード（または解凍）したフォルダへ移動
 
 ```powershell
-Set-Location "C:\Users\<あなたの名前>\Desktop\neo-fantasy-vi-lite"
+Set-Location "C:\Users\<あなたの名前>\Downloads\neo-fantasy-vi-lite"
 ```
 
 3. ファイル確認
@@ -79,7 +104,7 @@ powershell -ExecutionPolicy Bypass -File .\serve.ps1
 ### B. Linux / macOS / Git Bash の場合（推奨）
 
 1. ターミナルを開く
-2. ゲームを保存したフォルダへ移動
+2. ダウンロード（または解凍）したフォルダへ移動
 
 ```bash
 cd /path/to/neo-fantasy-vi-lite
